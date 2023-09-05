@@ -18,14 +18,8 @@ dbConnection();
 // mean_user
 
 // Rutas
-app.get( '/', (req, res) => {
+app.use('/api/usuarios', require('./routes/usuarios.routes'));
 
-    res.json({
-        ok: true,
-        msg: 'Hola Mundo'
-    });
-
-});
 
 
 app.listen( process.env.PORT, () => {
