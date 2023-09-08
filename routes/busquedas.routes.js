@@ -1,11 +1,11 @@
 /*
-    ruta: api/todo/:busqueda
+    ruta: api/todo/
 */
 
 const { Router } = require('express');
 
 const { validarJWT } = require('../middlewares/validar-jwt');
-const { getTodo } = require('../controllers/busquedas.controller');
+const { getTodo, getDocumentosColeccion } = require('../controllers/busquedas.controller');
 
 const router = Router();
 
@@ -13,6 +13,13 @@ const router = Router();
 router.get( 
     '/:busqueda',
     validarJWT, 
-    getTodo);
+    getTodo
+);
+
+router.get( 
+    '/coleccion/:tabla/:busqueda',
+    validarJWT, 
+    getDocumentosColeccion
+);
 
 module.exports = router;
