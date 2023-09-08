@@ -1,6 +1,7 @@
 const { response } = require('express');
 
 const Hospital = require('../models/hospital');
+const { generarJWT } = require('../helpers/jwt');
 
 const getHospitales = (req, res = response) => {
 
@@ -25,7 +26,7 @@ const crearHospital = async(req, res = response) => {
 
         res.json({
             ok: true,
-            hospital: hospitalDB
+            hospital: hospitalDB,
         });
         
     } catch (error) {
